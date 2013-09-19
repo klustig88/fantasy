@@ -2,8 +2,31 @@
   <p> Welcome to your Team's Home Page</p>
 
   <% if current_user %>
-    <%= current_user.team_name %>
+   <p>Team Name: <%= current_user.team_name %></p>
+  <br>
+
+  <p> Players </p>
+ <br>
+ <table>
+  <tr>
+   <th> First Name </th>
+    <th> Last Name </th>
+    <th> Position </th>
+    <th> Team </th>
+  </tr>
+    <% current_user.players.each do |playa| %>
+   <tr>
+   <td><%= playa.first_name  %></td> 
+   <td><%= playa.last_name  %></td> 
+   <td><%= playa.position  %></td> 
+   <td><%= playa.team  %></td>
+  </tr>
   <% end %>
+</table>
+  
+  <% end %>
+  
+  
 
   <p> Click the Button below to add a Player to your Team</p>
   <form action='/create_player' method='GET'>

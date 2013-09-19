@@ -7,7 +7,7 @@ get '/create_user' do
 end
 
 get '/team' do
-  if current_user 
+  if current_user
     erb :team 
   else
     @error = "Error: Please Log in to View Your Homepage"
@@ -27,7 +27,8 @@ get "/login" do
     session[:id] = @user[:id]
     erb :team
   else
-    erb :fail_auth
+     @error = "Error: Incorrect Email or Password"
+    erb :index
   end
 end
 
@@ -38,7 +39,7 @@ end
 post '/create_player' do
   player = Player.create(params[:create_player])
   player.update_attributes(user_id: session[:id])
-  redirect to('/create_player')
+  redirect to('/team')
 end
 
 

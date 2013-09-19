@@ -19,7 +19,8 @@
 </head>
 <body>
   <% if current_user %>
-  <%= yield %>
+  <p><a href="/logout">Logout</a></p>
   <% end %>
+  <%= yield %>
 </body>
 </html>

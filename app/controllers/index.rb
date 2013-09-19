@@ -11,7 +11,7 @@ get '/team' do
 end
 
 get '/logout' do
-  session[:id] = nil
+  session.clear
   erb :index
 end
 

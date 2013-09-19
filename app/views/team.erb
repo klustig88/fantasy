@@ -1,0 +1,12 @@
+<div>
+  <p> Welcome to your Team's Home Page</p>
+
+<% if @user %>
+  <p> <%= @user.team_name %> <p>
+
+  <div>
+    <form action='/logout' method='get'>
+      <input type='submit' value='Logout'>
+    </form>
+
+<% end %>

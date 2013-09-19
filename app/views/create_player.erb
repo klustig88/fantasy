@@ -1,0 +1,22 @@
+ <br>
+  <form action='/team' value='GET'>
+   <input type='submit' value='Go to Home Page'>
+</form><br>
+
+<p> Add a Player to Team <%= current_user.team_name %></p>
+
+<p> Player Information</p>
+
+
+
+<form action='/create_player' method='POST'>
+  <label> First Name: <input type='text' name='create_player[first_name]'></label><br>
+  <label> Last Name: <input type='text' name='create_player[last_name]'></label><br>
+
+  <label> Position: <input type='text' name='create_player[position]'></label><br>
+  <label> Team: <input type='text' name='create_player[team]'></label><br>
+  <br>
+`<input type='submit' value='Add Player'>
+</form>
+
+

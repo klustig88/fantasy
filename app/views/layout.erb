@@ -18,9 +18,13 @@
   <title></title>
 </head>
 <body>
-  <% if current_user %>
-  <p><a href="/logout">Logout</a></p>
-  <% end %>
-  <%= yield %>
+  <div class='container'>
+    <% if current_user %>
+      <p><a href="/logout">Logout</a></p>
+    <% else %>
+      <p><%= @error %></p>
+    <% end %>
+    <%= yield %>
+  </div>
 </body>
 </html>

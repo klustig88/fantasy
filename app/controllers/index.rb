@@ -7,7 +7,12 @@ get '/create_user' do
 end
 
 get '/team' do
-  erb :team
+  if current_user 
+    erb :team 
+  else
+    @error = "Error: Please Log in to View Your Homepage"
+    erb :index
+  end
 end
 
 get '/logout' do
@@ -15,15 +20,9 @@ get '/logout' do
   erb :index
 end
 
-post '/create_user' do
-  @user = Users.create(params[:create_user])
-  session[:id] = @user[:id]
-  redirect to ('/')
-end
-
 get "/login" do
-  p @email = params[:user][:email]
-  @user = Users.find_by_email(@email)
+  @email = params[:user][:email]
+  @user = User.find_by_email(@email)
   if @user.try(:authenticate, params[:user][:password])
     session[:id] = @user[:id]
     erb :team
@@ -31,3 +30,22 @@ get "/login" do
     erb :fail_auth
   end
 end
+
+get '/create_player' do
+  erb :create_player
+end
+
+post '/create_player' do
+  player = Player.create(params[:create_player])
+  player.update_attributes(user_id: session[:id])
+  redirect to('/create_player')
+end
+
+
+post '/create_user' do
+  @user = User.create(params[:create_user])
+  session[:id] = @user[:id]
+  redirect to ('/')
+end
+
+

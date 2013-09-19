@@ -1,8 +1,12 @@
-<div class='container'>
+
   <p> Welcome to your Team's Home Page</p>
 
-   <% if current_user %>
-  <%= current_user.team_name %>
+  <% if current_user %>
+    <%= current_user.team_name %>
   <% end %>
 
-</div>
+  <p> Click the Button below to add a Player to your Team</p>
+  <form action='/create_player' method='GET'>
+    <input type='submit' value='Add A Player'>
+    </form>
+

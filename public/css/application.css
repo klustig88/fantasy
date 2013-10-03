@@ -1,9 +1,45 @@
 .container {
   margin: 20px auto;
-  width: 600px;
+  width: 100%;
   padding: 0px 20px 20px 20px;
-  border: 1px dotted black;
 }
 th {
   text-align: left;
+}
+
+.home_button, .submit_button_login, .create_button, .logout{
+  border-radius: 5px;
+}
+
+
+.fantasy_footballer {
+  font-family: copperplate;
+  color: blue;
+  text-align: center;
+
+}
+
+.index_top {
+  background-color: sienna;
+  height: 300px;
+}
+
+.football_logos{
+  position: relative;
+  left: 28%;
+
+}
+
+.team_title {
+  font-family: copperplate;
+  text-align: center;
+  color: white;
+
+}
+
+.team_home {
+  width: 100%;
+  height: 100px;  
+  background-image: -webkit-gradient(linear, right top, left bottom, color-stop(0, #75FF75), color-stop(1, #00A3EF));
+  font-size: 40px; 
 }

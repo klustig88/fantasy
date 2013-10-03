@@ -37,16 +37,20 @@ get '/create_player' do
 end
 
 post '/create_player' do
-  player = Player.create(params[:create_player])
-  player.update_attributes(user_id: session[:id])
-  redirect to('/team')
+    @player = Player.create(params[:create_player])
+    @player.update_attributes(user_id: session[:id])
+if request.xhr?
+  erb :add_player, layout: false, locals: {playa: @player}
+else
+  erb :add_player
+end
 end
 
 
 post '/create_user' do
   @user = User.create(params[:create_user])
   session[:id] = @user[:id]
-  redirect to ('/')
+  redirect to ('/team')
 end
 
 

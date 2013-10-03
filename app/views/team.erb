@@ -1,35 +1,51 @@
-
-  <p> Welcome to your Team's Home Page</p>
-
+<div class='team_home'>
+  <p class='team_title'> Welcome to your Team's Home Page</p>
+</div>
   <% if current_user %>
    <p>Team Name: <%= current_user.team_name %></p>
   <br>
 
   <p> Players </p>
  <br>
- <table>
+ <table id='player_table'>
   <tr>
    <th> First Name </th>
     <th> Last Name </th>
     <th> Position </th>
     <th> Team </th>
   </tr>
+  <tbody id='player_table'>
     <% current_user.players.each do |playa| %>
-   <tr>
-   <td><%= playa.first_name  %></td> 
-   <td><%= playa.last_name  %></td> 
-   <td><%= playa.position  %></td> 
-   <td><%= playa.team  %></td>
-  </tr>
+      <%= erb :add_player, layout: false, locals: {playa: playa}    %>
+   <!-- <tr>
+   <td><%# playa.first_name  %></td> 
+   <td><%# playa.last_name  %></td> 
+   <td><%# playa.position  %></td> 
+   <td><%# playa.team  %></td>
+  </tr> -->
   <% end %>
+</tbody>
 </table>
   
   <% end %>
   
-  
+  <p> Add a Player to Team <%= current_user.team_name %></p>
 
-  <p> Click the Button below to add a Player to your Team</p>
+<p> Player Information</p>
+
+<form id='create_player' action='/create_player' method='POST'>
+  <label> First Name: <input id='first_name' type='text' name='create_player[first_name]'></label><br>
+  <label> Last Name: <input id='last_name' type='text' name='create_player[last_name]'></label><br>
+
+  <label> Position: <input id='position' type='text' name='create_player[position]'></label><br>
+  <label> Team: <input id='team' type='text' name='create_player[team]'></label><br>
+  <br>
+`<input type='submit' value='Add Player'>
+</form>
+
+
+ <!--  <p> Click the Button below to add a Player to your Team</p>
   <form action='/create_player' method='GET'>
     <input type='submit' value='Add A Player'>
     </form>
-
+ -->

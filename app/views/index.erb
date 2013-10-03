@@ -1,19 +1,18 @@
-
-
-  <h1>Fantasy Footballer</h1>
+<div class='index_top'>
+    <h1 class='fantasy_footballer'>Fantasy Footballer</h1>
+    <img class='football_logos' style='height:200px; width: 600px' src='http://img.gawkerassets.com/img/190n6m0hbpw7ajpg/ku-bigpic.jpg'>
+</div>
 
     <br>
-  <form action='/team' value='GET'>
-   <input type='submit' value='Go to Home Page'>
-</form><br>
+  <br>
 
   <p>Sign Up to keep track of your Fantasy Football Team</p>
   
   <form action="/login" method="GET">
     <label>Email: <input type="text" name="user[email]"></label>
     <br>
-    <label>Password: <input type="text" name="user[password]"></label><br>
-    <input type='submit' value="Login">
+    <label>Password: <input type="password" name="user[password]"></label><br>
+    <input class='submit_button_login' type='submit' value="Login">
   </form>
 
 <br>
@@ -21,7 +20,7 @@
 
 <p> Click Button below to create a New Account</p>
   <form action="/create_user" method="GET">
-    <input type='submit' value="Create a User">
+    <input class='create_button' type='submit' value="Create a User">
   </form>
 
 

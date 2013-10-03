@@ -20,7 +20,12 @@
 <body>
   <div class='container'>
     <% if current_user %>
-      <p><a href="/logout">Logout</a></p>
+      <form action='/logout' value='GET'>
+        <input class='logout' type='submit' value='Logout'>
+      </form>
+      <form action='/team' value='GET'>
+        <input class='home_button' type='submit' value='Go to Home Page'>
+      </form>
     <% else %>
       <p><%= @error %></p>
     <% end %>
